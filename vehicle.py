@@ -6,12 +6,19 @@ class Vehicle(pygame.sprite.Sprite):
     def __init__(self, pos, car_choice_count):
         pygame.sprite.Sprite.__init__(self)
         self.image_large = pygame.image.load(vehicle_images[car_choice_count])
-        self.image = pygame.transform.scale(self.image_large,(125,95))
+        self.image = pygame.transform.scale(self.image_large,(62,102))
         self.rect = self.image.get_rect()
         self.rect.center = pos
         self.pos = pos
         self.score = 0
-        self.y_speed = 5
+        self.x = pos[0]
+        self.y = pos[1]
+        self.y_speed = 0
+        self.x_speed = 0
+    
+    def update(self):
+        self.rect.x += self.x_speed
+        self.rect.y += self.y_speed
 
 
 image1 = './images/car.png'

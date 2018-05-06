@@ -29,7 +29,7 @@ lane1_x = left_start + (move_x/2)
 lane2_x = lane1_x + move_x
 lane3_x = lane1_x + move_x*2
 lane4_x = lane1_x + move_x*3
-left_border = 146
+left_border = 190
 right_border = 521 + move_x
 bottom_border = 533
 top_border = 90
@@ -186,6 +186,7 @@ def intro():
     pygame.mixer.music.fadeout(1500)
 
 def pick_car(vehicle_images):
+    #will add this in later to shrink code in intro fn
     pass
 
 def outro(results_screen, play_again, player_score):
@@ -232,6 +233,7 @@ def main():
         pygame.mixer.music.load('./sounds/racing.mp3')
         pygame.mixer.music.play(-1)
 
+        #list to append with RNG
         enemy_list = []
 
         #creating ranges for random speeds
@@ -249,7 +251,7 @@ def main():
         spawn_time =28
 
         lose = False
-        #Intro screen
+        #Main gameplay loops
         while not lose and play_again == True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -260,26 +262,29 @@ def main():
                 #Controls
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        if player.rect.x - move_x < left_border:
-                            pass
-                        else:
-                            player.rect.x -= move_x
+                        player.x_speed = -20
                     elif event.key == pygame.K_RIGHT:
-                        if player.rect.x + move_x > right_border:
-                            pass
-                        else:
-                            player.rect.x += move_x
+                        player.x_speed = 20
                     elif event.key == pygame.K_UP:
-                        if player.rect.y - move_y < top_border:
-                            pass
-                        else:
-                            player.rect.y -= move_y
+                        player.y_speed = -20
                     elif event.key == pygame.K_DOWN:
-                        if player.rect.y + move_y > bottom_border:
-                            pass
-                        else:
-                            player.rect.y += move_y
+                        player.y_speed = 20
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT:
+                        player.x_speed = 0
+                    elif event.key == pygame.K_RIGHT:
+                        player.x_speed = 0
+                    elif event.key == pygame.K_UP:
+                        player.y_speed = 0
+                    elif event.key == pygame.K_DOWN:
+                        player.y_speed = 0
 
+            #restricts where player can go
+            player.rect.bottom = min(player.rect.bottom, background_height + 20)
+            player.rect.top = max(player.rect.top, -20)
+            player.rect.right = min(player.rect.right, right_border)
+            player.rect.left = max(player.rect.left, left_border)
+            
             screen.fill(background_crash)
             pygame.display.update()
                 
@@ -289,24 +294,22 @@ def main():
             counting_rect = counting_text.get_rect()
             counting_rect.center = (775,15)
 
+            #uses the timer to determine and apply the game difficulty
             if score_timer.get()/1000 > 20 and score_timer.get()/1000 < 40:
                 speed_start = medium_speed_start
                 speed_end = medium_speed_end
                 mode = medium_mode
                 spawn_time = 25
-                # print('medium')
             elif score_timer.get()/1000 > 40 and score_timer.get()/1000 < 80:
                 speed_start = hard_speed_start
                 speed_end = hard_speed_end
                 mode = hard_mode
                 spawn_time = 20
-                # print('hard')
             elif score_timer.get()/1000 > 80:
                 speed_start = atlanta_speed_start
                 speed_end = atlanta_speed_end
                 mode = atlanta_mode
                 spawn_time = 18
-                # print('atlanta')
                 
             #randomly spawn enemy cars
             if count % spawn_time == 0:
@@ -315,6 +318,8 @@ def main():
                 if random.random() < mode:
                         enemy_list.append(Enemy(enemy_lanes[random.randint(2,3)], random.randrange(speed_start,speed_end)))
                 
+            player.update()
+            
             enemy_list_group = pygame.sprite.Group(enemy_list)
             
             crash = pygame.sprite.spritecollide(player, enemy_list_group, True)
@@ -354,15 +359,6 @@ def main():
         results_screen = True
         outro(results_screen, play_again, player.score)
         
-           
-
     pygame.quit()
 
 main()
-#  # Restrictions - potentially use this rather than the if/else statement
-# self.rect.bottom = min(self.rect.bottom, 600)
-# self.rect.top = max(self.rect.top, 0)
-# self.rect.right = min(self.rect.right, 800)
-# self.rect.left = max(self.rect.left, 0)
-
-
