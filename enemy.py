@@ -6,7 +6,7 @@ class Enemy(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image_large = pygame.image.load(
             vehicle_images[random.randint(0, 8)])
-        self.image = pygame.transform.scale(self.image_large, (61, 100))
+        self.image = pygame.transform.scale(self.image_large, (62, 102))
         self.rect = self.image.get_rect()
         self.rect.center = pos
         self.pos = pos
