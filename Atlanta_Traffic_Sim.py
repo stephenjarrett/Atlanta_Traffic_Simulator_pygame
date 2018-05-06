@@ -21,8 +21,8 @@ fps = 60
 #sizes
 car_width = 175
 car_height = 140
-left_start = 175
-move_x = 125
+left_start = 161
+move_x = 129
 move_y = 140
 start_y = background_height - car_height/2
 lane1_x = left_start + (move_x/2)
@@ -75,7 +75,7 @@ player_options2_text = font.render(('Press ENTER to continue'), 1, color_list[0]
 player_options2_text_rect = player_options2_text.get_rect(center=(size[0]/2 -3, size[1]/2 + 150))
 stephen_jarrett_text = font.render(('-Stephen Jarrett'), 1, color_list[0])
 stephen_jarrett_text_rect = stephen_jarrett_text.get_rect(center=(size[0]/2, size[1]/2 + 40))
-select_car_text = font.render(('Press <- and -> to select your car'), 1, color_list[0])
+select_car_text = font.render(('Press LEFT ARROW and RIGHT ARROW to select your car'), 1, color_list[0])
 select_car_text_rect = select_car_text.get_rect(center=(size[0]/2, size[1]/2 - 150))
 press_enter_text = font.render(('Press ENTER when ready'), 1, color_list[0])
 press_enter_text_rect = press_enter_text.get_rect(center=(size[0]/2, size[1]/2 + 150))
