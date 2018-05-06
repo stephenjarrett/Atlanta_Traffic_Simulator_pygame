@@ -20,7 +20,7 @@ image3 = './images/Police.png'
 image4 = './images/Black_viper.png'
 image5 = './images/Mini_van.png'
 image6 = './images/truck.png'
-image7 = './images/Mini_truck.png'
+image7 = './images/Small_truck.png'
 image8 = './images/Audi.png'
 image9 = './images/Ambulance.png'
 
