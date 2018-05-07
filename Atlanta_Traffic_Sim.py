@@ -10,13 +10,18 @@ pygame.init()
 
 black = (0, 0, 0)
 white = (255, 255, 255)
+yellow = (255,255,0)
+orange = (255,140,0)
+blue = (0, 0, 255)
+green = (0, 255, 0)
+red = (255, 0, 0)
+awesome_counting_color = (51, 255, 255)
 background_crash = (0, 0, 0)
 background_height = 650
 background_width = 840
 size = (background_width, background_height)
 screen = pygame.display.set_mode(size)
 fps = 60
-
 
 #sizes
 car_width = 175
@@ -56,10 +61,6 @@ car_choice = vehicle_images[0]
 #fonts and texts (score text is in outro screen due to embeded var)
 font = pygame.font.SysFont("Times New Roman", 30)
 large_font = pygame.font.SysFont('Times New Roman', 60, 5)
-blue = (0,0,255)
-green = (0,255,0)
-red = (255,0,0)
-awesome_counting_color = (51, 255, 255)
 color_list = [white, green, red, blue]
 you_lose_text = font.render(('You LOSE!'), 1, awesome_counting_color)
 you_lose_text_rect = you_lose_text.get_rect(center=(size[0]/2, size[1]/2 - 25))
@@ -79,13 +80,22 @@ select_car_text = font.render(('Press LEFT ARROW and RIGHT ARROW to select your 
 select_car_text_rect = select_car_text.get_rect(center=(size[0]/2, size[1]/2 - 150))
 press_enter_text = font.render(('Press ENTER when ready'), 1, color_list[0])
 press_enter_text_rect = press_enter_text.get_rect(center=(size[0]/2, size[1]/2 + 150))
+time_11am_text = font.render(('Time: 11am'), 1, white)
+time_11am_text_rect = time_11am_text.get_rect(center=(size[0]/2, size[1]/2))
+time_11am_text_rect.center = (775,15)
+time_1pm_text = font.render(('Time: 1pm'), 1, yellow)
+time_1pm_text_rect = time_1pm_text.get_rect(center=(size[0]/2, size[1]/2))
+time_3pm_text = font.render(('Time: 3pm'), 1, orange)
+time_3pm_text_rect = time_3pm_text.get_rect(center=(size[0]/2, size[1]/2))
+time_5pm_text = font.render(('Time: 5pm'), 1, red)
+time_5pm_text_rect = time_5pm_text.get_rect(center=(size[0]/2, size[1]/2))
 
 def intro():
     intro = True
     title_text = True
     pygame.mixer.music.load('./sounds/game_intro.mp3')
     pygame.mixer.music.play(-1)
-    pygame.mixer.music.set_volume(0.3)
+    pygame.mixer.music.set_volume(0.4)
     car_choice_count = 0
 
     atlanta_text = large_font.render(('ATLANTA'), 1, color_list[0])
@@ -292,25 +302,30 @@ def main():
 
             counting_text = font.render(str(counting_string), 1, awesome_counting_color)
             counting_rect = counting_text.get_rect()
-            counting_rect.center = (775,15)
+            counting_rect.center = (775,40)
 
-            #uses the timer to determine and apply the game difficulty
+            #uses the timer to determine and apply the game difficulty and difficulty display
+            if score_timer.get()/1000 < 20:
+                difficulty_text = time_11am_text
             if score_timer.get()/1000 > 20 and score_timer.get()/1000 < 40:
                 speed_start = medium_speed_start
                 speed_end = medium_speed_end
                 mode = medium_mode
                 spawn_time = 25
+                difficulty_text = time_1pm_text
             elif score_timer.get()/1000 > 40 and score_timer.get()/1000 < 80:
                 speed_start = hard_speed_start
                 speed_end = hard_speed_end
                 mode = hard_mode
                 spawn_time = 20
+                difficulty_text = time_3pm_text
             elif score_timer.get()/1000 > 80:
                 speed_start = atlanta_speed_start
                 speed_end = atlanta_speed_end
                 mode = atlanta_mode
                 spawn_time = 18
-                
+                difficulty_text = time_5pm_text
+              
             #randomly spawn enemy cars
             if count % spawn_time == 0:
                 if random.random() < mode:
@@ -339,6 +354,7 @@ def main():
 
             screen.blit(background,(0,0))
             screen.blit(counting_text,counting_rect)
+            screen.blit(difficulty_text,time_11am_text_rect)
             player_group.draw(screen)
             enemy_list_group.draw(screen)
 
