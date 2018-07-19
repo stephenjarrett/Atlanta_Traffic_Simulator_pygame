@@ -25,7 +25,7 @@ Gameplay
 <br>
 Results and play again screen
 <br>
-[![Results and play again screen](https://github.com/stephenjarrett/Atlanta_Traffic_Simulator_pygame/blob/master/images/ATSresults.gif =600x478)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
+[![Results and play again screen](https://github.com/stephenjarrett/Atlanta_Traffic_Simulator_pygame/blob/master/images/ATSresults.png)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
 
 
 ## About Atlanta Traffic Simulator
