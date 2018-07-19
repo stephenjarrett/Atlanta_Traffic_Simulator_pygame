@@ -4,7 +4,7 @@ Atlanta Traffic Simulator is a basic frogger clone built using python and the py
 It was built in the first few weeks of my bootcamp with DigitalCrafts. 
 You select a vehicle and try to last as long as possible in Atlanta traffic. Don't hit another car!
 Difficulty goes up as the clock ticks closer to rush hour.
-The amount of "enemy" cars and their speed is randomly generated based on the counter.
+The amount of "enemy" cars and their speeds are randomly generated based on the counter.
 Run the python file Atlanta_Traffic_Sim to begin using 'pythonw Atlanta_Traffic_Sim.py'.
 
 ## Demo
@@ -26,10 +26,3 @@ Gameplay
 Results and play again screen
 <br>
 [![Results and play again screen](https://github.com/stephenjarrett/Atlanta_Traffic_Simulator_pygame/blob/master/images/ATSresults.png)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
-
-
-## About Atlanta Traffic Simulator
-
-
-## Using Atlanta Traffic Simulator
-
