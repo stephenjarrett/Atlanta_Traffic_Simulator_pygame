@@ -13,19 +13,19 @@ Run the python file Atlanta_Traffic_Sim to begin using 'pythonw Atlanta_Traffic_
 
 Title screen
 <br>
-[![Title Screen](https://github.com/sprice36/MarvelComics/blob/master/marvelcomicsmarketplacehome.gif?raw=true)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
+[![Title Screen](https://github.com/stephenjarrett/Atlanta_Traffic_Simulator_pygame/blob/master/images/ATStitle.gif)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
 <br>
 Car selection
 <br>
-[![Car Selection](https://github.com/sprice36/MarvelComics/blob/master/marvelcomicsmarketplacecharactersearch.gif?raw=true)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
+[![Car Selection](https://github.com/stephenjarrett/Atlanta_Traffic_Simulator_pygame/blob/master/images/ATScarselection.gif)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
 <br>
 Gameplay
 <br>
-[![Gameplay](https://github.com/sprice36/MarvelComics/blob/master/marvelcomicsmarketplacecomicsearch.gif?raw=true)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
+[![Gameplay](https://github.com/stephenjarrett/Atlanta_Traffic_Simulator_pygame/blob/master/images/ATSgameplay.gif)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
 <br>
 Results and play again screen
 <br>
-[![Results and play again screen](https://github.com/sprice36/MarvelComics/blob/master/marvelcomicsmarketplacecomicsearch.gif?raw=true)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
+[![Results and play again screen](https://github.com/stephenjarrett/Atlanta_Traffic_Simulator_pygame/blob/master/images/ATSresults.gif)](https://www.youtube.com/watch?v=v8zOv59Sr7c&feature=youtu.be)
 
 
 ## About Atlanta Traffic Simulator
